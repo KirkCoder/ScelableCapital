@@ -1,10 +1,10 @@
 package com.example
 
 import android.app.Application
-import com.example.scelablecapital.BuildConfig
-import com.example.scelablecapital.di.AndroidModule
-import com.example.scelablecapital.di.AppComponent
-import com.example.scelablecapital.di.DaggerAppComponent
+import com.example.scalablecapital.BuildConfig
+import com.example.scalablecapital.di.AndroidModule
+import com.example.scalablecapital.di.AppComponent
+import com.example.scalablecapital.di.DaggerAppComponent
 import io.reactivex.exceptions.UndeliverableException
 import io.reactivex.plugins.RxJavaPlugins
 import timber.log.Timber

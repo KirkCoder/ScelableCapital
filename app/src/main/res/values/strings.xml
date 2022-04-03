@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ScelableCapital</string>
+    <string name="app_name">ScalableCapital</string>
     <string name="sorry_something_went_wrong">Sorry something went wrong</string>
     <string name="retry">Try again</string>
     <string name="close">Close</string>

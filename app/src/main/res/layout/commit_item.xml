@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
-    <com.example.scelablecapital.presentation.commits.ChartView
+    <com.example.scalablecapital.presentation.commits.ChartView
         android:id="@+id/chart"
         android:layout_marginStart="@dimen/side_margin"
         android:layout_marginEnd="@dimen/side_margin"
