@@ -22,8 +22,10 @@ class ChartView @JvmOverloads constructor(
     }
 
     fun setPercent(percent: Int) {
-        this.percent = percent
-        invalidate()
+        if (percent != this.percent) {
+            this.percent = percent
+            invalidate()
+        }
     }
 
     override fun onDraw(canvas: Canvas) {

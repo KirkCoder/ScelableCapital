@@ -51,16 +51,6 @@ class CommitsFragment : BaseFragment() {
         with(commitsRecyclerView) {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             adapter = commitsAdapter
-            ContextCompat.getDrawable(context, R.drawable.devider)?.let { devider ->
-                val sideMargin = context.resources.getDimension(R.dimen.side_margin).toInt()
-                addItemDecoration(
-                    AllRepositoriesItemDecorator(
-                        marginBottom = sideMargin,
-                        sideMargin = sideMargin,
-                        divider = devider,
-                    )
-                )
-            }
         }
     }
 

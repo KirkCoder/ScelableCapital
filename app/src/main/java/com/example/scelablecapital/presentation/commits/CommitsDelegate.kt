@@ -29,7 +29,7 @@ class CommitsDelegate : AdapterDelegate<List<CommitsByMonthPresentation>>() {
     ) {
         val item = items[position]
         with(holder.itemView) {
-            monthName.text = item.month + item.percent.toString()
+            monthName.text = item.month
             chart.setPercent(item.percent)
         }
     }
