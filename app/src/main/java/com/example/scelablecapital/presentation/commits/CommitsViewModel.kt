@@ -43,7 +43,7 @@ class CommitsViewModel(
     fun loadCommits() {
         getCommitsUseCase.loadCommits(repositoryName)
             .map(commitsPresentationFormatter::format)
-            .repeatWhen { completed -> completed.delay(1500, TimeUnit.MICROSECONDS) }
+            .repeatWhen { completed -> completed.delay(4000, TimeUnit.MILLISECONDS) }
             .toObservable()
             .schedule(
                 onNext = { commits ->

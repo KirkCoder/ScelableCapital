@@ -1,8 +1,10 @@
 package com.example.scelablecapital.presentation.commits
 
-import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
-class CommitsAdapter : ListDelegationAdapter<List<CommitsByMonthPresentation>>() {
+class CommitsAdapter : AsyncListDifferDelegationAdapter<CommitsByMonthPresentation>(
+    CommitsListDiffUtilItemCallback
+) {
 
     init {
         delegatesManager.addDelegate(CommitsDelegate())

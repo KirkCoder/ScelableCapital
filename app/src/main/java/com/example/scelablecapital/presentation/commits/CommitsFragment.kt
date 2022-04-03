@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.App
 import com.example.scelablecapital.R
 import com.example.scelablecapital.base.BaseFragment
-import com.example.scelablecapital.presentation.allrepositories.*
 import kotlinx.android.synthetic.main.error_layout.*
 import kotlinx.android.synthetic.main.fragment_commits.*
 import javax.inject.Inject
@@ -76,7 +74,6 @@ class CommitsFragment : BaseFragment() {
             totalTextView.text = commits.totalCount
             commitsRecyclerView.isVisible = true
             commitsAdapter.items = commits.commitsByMonth
-            commitsAdapter.notifyDataSetChanged() // todo in our case it is ok, but in real application here will be a lot of items and we should use diff utils
         }
     }
 

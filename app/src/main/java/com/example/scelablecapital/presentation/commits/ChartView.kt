@@ -1,5 +1,6 @@
 package com.example.scelablecapital.presentation.commits
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -7,6 +8,8 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import timber.log.Timber
 
 class ChartView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -14,18 +17,30 @@ class ChartView @JvmOverloads constructor(
 
     private val paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val rect: Rect = Rect()
-    private var strokeColor: Int = Color.BLUE
+    private var chartColor: Int = Color.BLUE
+    private val valueAnimator = ValueAnimator().apply {
+        interpolator = AccelerateDecelerateInterpolator()
+        addUpdateListener { animator ->
+            percent = animator.animatedValue as Int
+            invalidate()
+        }
+    }
+
     private var percent = 0
 
     init {
-        paint.color = strokeColor
+        paint.color = chartColor
     }
 
     fun setPercent(percent: Int) {
-        if (percent != this.percent) {
-            this.percent = percent
-            invalidate()
-        }
+        valueAnimator.cancel()
+        this.percent = percent
+    }
+
+    fun changePercent(percent: Int) {
+        valueAnimator.cancel()
+        valueAnimator.setIntValues(this.percent, percent)
+        valueAnimator.start()
     }
 
     override fun onDraw(canvas: Canvas) {

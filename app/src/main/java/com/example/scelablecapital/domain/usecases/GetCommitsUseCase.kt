@@ -2,7 +2,6 @@ package com.example.scelablecapital.domain.usecases
 
 import com.example.scelablecapital.domain.mappers.CommitByMonthWithPercentModelMapper
 import com.example.scelablecapital.domain.mappers.CommitsByMonthModelMapper
-import com.example.scelablecapital.domain.model.CommitByMonthWithPercentModel
 import com.example.scelablecapital.domain.model.CommitsModel
 import com.example.scelablecapital.domain.repositories.GetCommitsRepository
 import io.reactivex.Single

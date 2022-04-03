@@ -28,9 +28,15 @@ class CommitsDelegate : AdapterDelegate<List<CommitsByMonthPresentation>>() {
         payloads: MutableList<Any>
     ) {
         val item = items[position]
+        val payload =
+            payloads.firstOrNull { it is CommitsByMonthPresentation } as? CommitsByMonthPresentation
         with(holder.itemView) {
-            monthName.text = item.month
-            chart.setPercent(item.percent)
+            if (payload == null) {
+                monthName.text = item.month
+                chart.setPercent(item.percent)
+            } else {
+                chart.changePercent(item.percent)
+            }
         }
     }
 
