@@ -5,6 +5,6 @@ import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 class CommitsAdapter : ListDelegationAdapter<List<CommitsByMonthPresentation>>() {
 
     init {
-//        delegatesManager.addDelegate(RepositoryDelegate())
+        delegatesManager.addDelegate(CommitsDelegate())
     }
 }
