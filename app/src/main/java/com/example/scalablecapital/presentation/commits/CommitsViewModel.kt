@@ -43,7 +43,7 @@ class CommitsViewModel(
     fun loadCommits() {
         getCommitsUseCase.loadCommits(repositoryName)
             .map(commitsPresentationFormatter::format)
-            .repeatWhen { completed -> completed.delay(4000, TimeUnit.MILLISECONDS) }
+            .repeatWhen { completed -> completed.delay(LOAD_COMMITS_DELAY, TimeUnit.MILLISECONDS) }
             .toObservable()
             .schedule(
                 onNext = { commits ->
@@ -107,4 +107,7 @@ class CommitsViewModel(
         }
     }
 
+    companion object {
+        private const val LOAD_COMMITS_DELAY = 1500L
+    }
 }
